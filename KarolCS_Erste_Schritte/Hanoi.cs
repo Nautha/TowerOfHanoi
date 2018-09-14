@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,8 +42,14 @@ namespace KarolCS_Erste_Schritte
         }
 
         public void run() {
+            Stopwatch stopwatch = new Stopwatch();
+
+            stopwatch.Start();
             bob.buildTower(height);
             towerAlgorithm(0, 1, 2, height);
+            stopwatch.Stop();
+            TimeSpan ts = stopwatch.Elapsed;
+            Console.WriteLine("Bob the Builder hat {0} gebraucht.", ts);
             bob.iWon((3 * widthMax + 4) / 2, (widthMax + 2) / 2);
         }
 
@@ -55,7 +62,7 @@ namespace KarolCS_Erste_Schritte
         }
 
         private void editTowers(int from, int to) {
-            Console.WriteLine("Move {0} to {1}", from, to);
+            //Console.WriteLine("Move {0} to {1}", from, to);
 
             int toAdd = towers[from][towers[from].Count - 1];
 

@@ -11,9 +11,14 @@ namespace KarolCS_Erste_Schritte
     {
         static void Main(string[] args)
         {
-            Hanoi hanoi = new Hanoi(3);
+            Console.WriteLine("Wie viele Schichten soll der Turm haben?");
+            int input = Int32.Parse(Console.ReadLine());
 
-            hanoi.run();
+            Console.WriteLine("Das Spiel wird mit {0} Schichten gestratet. Bitte warten.", input);
+
+            Hanoi hanoi = new Hanoi(input);
+
+            
         }
 
         static void moveTower(char t1, char t2, char t3, int n) {
