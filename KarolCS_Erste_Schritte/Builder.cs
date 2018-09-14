@@ -111,6 +111,53 @@ namespace KarolCS_Erste_Schritte
             gotoPos(0, 0);
         }
 
+        public void moveLayer(int from, int to, int width, int widthMax) {
+            gotoPos(from, 0);
+            removeLayer(width, widthMax);
+            gotoPos(to, 0);
+            rebuildLayer(width, widthMax);
+        }
+
+        private void removeLayer(int width, int widthMax) {
+            getIntoPosition(width, widthMax);
+
+            for(int i = 0; i < width; i++) {
+                removeLine(width);
+                robo.Schritt();
+                if (i % 2 == 0) {
+                    robo.RechtsDrehen();
+                    robo.Schritt();
+                    robo.RechtsDrehen();
+                } else {
+                    robo.LinksDrehen();
+                    robo.Schritt();
+                    robo.LinksDrehen();
+                }
+            }
+        }
+
+        private void rebuildLayer(int width, int widthMax) {
+            getIntoPosition(width, widthMax);
+            buildLayer(width);
+        }
+
+        private void getIntoPosition(int width, int widthMax) {
+            face('s');
+
+            int layer = ((width + 1) / 2) - 1;
+            int height = (widthMax + 1) / 2;
+
+            walk(height - layer);
+            robo.LinksDrehen();
+            walk(height - (layer + 1));
+        }
+
+        public void iWon(int x, int y) {
+            gotoPos(x, y);
+            while(true) {
+                robo.LinksDrehen();
+            }
+        }
 
     }
 }

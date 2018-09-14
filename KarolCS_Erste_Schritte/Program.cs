@@ -11,10 +11,9 @@ namespace KarolCS_Erste_Schritte
     {
         static void Main(string[] args)
         {
-            //Hanoi hanoi = new Hanoi(5);
+            Hanoi hanoi = new Hanoi(3);
 
-            //hanoi.run();
-            moveTower('1', '2', '3', 3);
+            hanoi.run();
         }
 
         static void moveTower(char t1, char t2, char t3, int n) {
