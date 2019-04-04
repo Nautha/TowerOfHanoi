@@ -39,6 +39,9 @@ namespace KarolCS_Erste_Schritte
             for(int i = 0; i < height; i++) {
                 towers[0].Add((height - i) * 2 - 1);
             }
+            
+            // Hanoi starten
+            run();
         }
 
         public void run() {
